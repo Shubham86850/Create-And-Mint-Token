@@ -24,17 +24,17 @@ MyToken is a smart contract built on the Ethereum blockchain using the Solidity 
 <h3> Installing </h3>
 
 
-**Open Remix IDE:** 
+**1. Open Remix IDE:** 
 
   Navigate to [Remix](https://remix.ethereum.org/) IDE.
 
-**Create the Smart Contract:**
+**2. Create the Smart Contract:**
 
   Create a new file named "Crate and Mint.sol".
 
   Copy and paste the provided smart contract code into the file.
 
-**Compile the Contract:**
+**3. Compile the Contract:**
 
   Select the appropriate Solidity compiler version (0.8.0 or higher).
 
@@ -42,7 +42,7 @@ MyToken is a smart contract built on the Ethereum blockchain using the Solidity 
 
 <h2> Executing Program </h2>
 
-<h4> Deploying the Contract </h4>
+<h3> Deploying the Contract </h3>
 
 **Deploy:**
 
@@ -52,7 +52,7 @@ Click "Deploy".
 
 Confirm the deployment transaction.
 
-<h4> Interacting with the Contract </h4>
+<h3> Interacting with the Contract </h3>
 
 **Mint Tokens:**
 
@@ -66,13 +66,13 @@ Function: transfer(address to, uint256 amount)
 
 Description: Transfer tokens to another address.
 
-**Pausing the Contract**
+**Pausing the Contract:**
 
 Function: pause()
 
 Description: Pause the contract (only the owner can call this).
 
-**Unpausing the Contract**
+**Unpausing the Contract:**
 
 Function: unpause()
 
