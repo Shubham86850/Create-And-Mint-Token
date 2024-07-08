@@ -23,23 +23,22 @@ MyToken is a smart contract built on the Ethereum blockchain using the Solidity 
 
 <h3> Installing </h3>
 
-<h4> Using Remix IDE </h4> 
 
 **Open Remix IDE:** 
 
-Navigate to Remix IDE.
+  Navigate to [Remix](https://remix.ethereum.org/) IDE.
 
 **Create the Smart Contract:**
 
-Create a new file named "My Token.sol".
+  Create a new file named "Crate and Mint.sol".
 
-Copy and paste the provided smart contract code into the file.
+  Copy and paste the provided smart contract code into the file.
 
 **Compile the Contract:**
 
-Select the appropriate Solidity compiler version (0.8.0 or higher).
+  Select the appropriate Solidity compiler version (0.8.0 or higher).
 
-Compile the SimpleToken contract.
+  Compile the MyToken contract.
 
 <h2> Executing Program </h2>
 
@@ -47,7 +46,7 @@ Compile the SimpleToken contract.
 
 **Deploy:**
 
-In the "Deploy & Run Transactions" tab, select SimpleToken from the contract dropdown.
+In the "Deploy & Run Transactions" tab, select MyToken from the contract dropdown.
 
 Click "Deploy".
 
@@ -59,21 +58,27 @@ Confirm the deployment transaction.
 
 Function: mint(address to, uint256 amount)
 
+Description: Mint new tokens to a specified address.
+
 **Transfer Tokens:**
 
 Function: transfer(address to, uint256 amount)
 
-**Approve Allowance:**
+Description: Transfer tokens to another address.
 
-Function: approve(address spender, uint256 amount)
+**Pausing the Contract**
 
-**Transfer From Allowance:**
+Function: pause()
 
-Function: transferFrom(address from, address to, uint256 amount)
+Description: Pause the contract (only the owner can call this).
 
-**Burn Tokens:**
+**Unpausing the Contract**
 
-Function: burn(uint256 amount)
+Function: unpause()
+
+Description: Unpause the contract (only the owner can call this).
+
+
 
 <h2> Help </h2>
 
@@ -83,7 +88,9 @@ You are using the correct address for each function.
 
 The owner is the only one calling the **mint** function.
 
-Sufficient allowance is approved for **transferFrom**.
+Verify all required imports are included.
+
+Enter the required constructor parameters (name and symbol).
 
 <h2> Authors </h2>
 
