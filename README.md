@@ -46,6 +46,47 @@ MyToken is a smart contract built on the Ethereum blockchain using the Solidity 
 
 **Deploy:**
 
+<pre>// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/security/Pausable.sol";
+
+contract MyToken is ERC20, Ownable, Pausable {
+    constructor(string memory name, string memory symbol) ERC20(name, symbol) Ownable(msg.sender) {}
+
+    event TokensMinted(address indexed to, uint256 amount);
+    event TokensBurned(address indexed from, uint256 amount);
+
+    function mint(address to, uint256 amount) external onlyOwner whenNotPaused {
+        _mint(to, amount);
+        emit TokensMinted(to, amount);
+    }
+
+    function burn(uint256 amount) external whenNotPaused {
+        _burn(msg.sender, amount);
+        emit TokensBurned(msg.sender, amount);
+    }
+
+    function pause() external onlyOwner {
+        _pause();
+    }
+
+    function unpause() external onlyOwner {
+        _unpause();
+    }
+
+    function transfer(address recipient, uint256 amount) public override whenNotPaused returns (bool) {
+        return super.transfer(recipient, amount);
+    }
+
+    function transferFrom(address sender, address recipient, uint256 amount) public override whenNotPaused returns (bool) {
+        return super.transferFrom(sender, recipient, amount);
+    }
+}
+</pre>
+
 In the "Deploy & Run Transactions" tab, select MyToken from the contract dropdown.
 
 Click "Deploy".
@@ -60,11 +101,34 @@ Function: mint(address to, uint256 amount)
 
 Description: Mint new tokens to a specified address.
 
+Example :
+
+<pre>mint("0x5B38Da6a701c568545dCfcB03FcB875f56beddC4", 1000)
+</pre>
+
+
+**Burning Tokens:**
+
+Function: burn(uint256 amount)
+
+Description: Burn a specified amount of your own tokens.
+
+Example :
+
+<pre> burn(200)
+</pre>
+
+
 **Transfer Tokens:**
 
-Function: transfer(address to, uint256 amount)
+Function: transfer(address recipient, uint256 amount)
 
 Description: Transfer tokens to another address.
+
+Example :
+
+<pre>transfer("0xAb8483F64d9C6d1EcF9b849Ae677dD3315835Cb2", 500)
+</pre>
 
 **Pausing the Contract:**
 
@@ -72,11 +136,21 @@ Function: pause()
 
 Description: Pause the contract (only the owner can call this).
 
+Example :
+
+<pre>pause()
+</pre>
+
 **Unpausing the Contract:**
 
 Function: unpause()
 
 Description: Unpause the contract (only the owner can call this).
+
+Example : 
+
+<pre>unpause()
+</pre>
 
 
 
